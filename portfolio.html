@@ -2,341 +2,638 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Information</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Information</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            text-decoration: none;
-            outline: none;
-            border: none;
-            text-transform: capitalize;
-        }
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
 
-        ::selection {
-            background: crimson;
-        }
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      text-decoration: none;
+      outline: none;
+      border: none;
+      text-transform: capitalize;
+    }
 
-        html {
-            font-size: 62%;
-            overflow-x: hidden;
-        }
+    ::selection {
+      background: crimson;
+    }
 
-        html::-webkit-scrollbar {
-            width: 1rem;
-        }
+    html {
+      font-size: 62%;
+      overflow-x: hidden;
+    }
 
-        body {
-            background: #0d0d0d;
-        }
+    html::-webkit-scrollbar {
+      width: 1rem;
+    }
 
-        .navbar {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            display: flex;
-            z-index: 1000;
-            align-items: flex-end;
-        }
+    body {
+      background: #0d0d0d;
+    }
 
-        .navbar a {
-            padding: 8px 5px;
-            font-size: 20px;
-            background: #1a1a1a;
-            flex: 1;
-            color: white;
-            text-align: center;
-            font-family: serif;
-            transition: .2s linear;
+    .navbar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      z-index: 1000;
+      align-items: flex-end;
+    }
 
-        }
+    .navbar a {
+      padding: 5px 8px;
+      font-size: 17px;
+      background: #1a1a1a;
+      flex: 1;
+      color: white;
+      text-align: center;
+      font-family: math;
+      transition: 0.2s linear;
+    }
 
-        .navbar i {
-            color: crimson;
-            padding-right: 5px;
+    .navbar i {
+      color: crimson;
+      padding-right: 5px;
+    }
 
-        }
+    .navbar a:hover {
+      background: crimson;
+      padding-bottom: 30px;
+    }
 
-        .navbar a:hover {
-            background: crimson;
-            padding-bottom: 30px;
-        }
+    .navbar a:hover i {
+      color: white;
+    }
 
-        .navbar a:hover i {
-            color: white;
-        }
+    section {
+      padding: 8rem 10%;
+    }
 
+    .heading {
+      text-align: center;
+      font-size: 30px;
+      color: whitesmoke;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
 
-        section {
-            padding: 8rem 10%;
-        }
+    .heading span {
+      text-transform: uppercase;
+      color: crimson;
+    }
 
+    .box-container {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
 
-        .heading {
-            text-align: center;
-            font-size: 30px;
-            color: whitesmoke;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
+    .box-container .box {
+      flex: 1 1 40rem;
+      padding-top: 20px;
+    }
 
-        .heading span {
-            text-transform: uppercase;
-            color: crimson;
-        }
+    .box-container .box video {
+      height: 300px;
+      width: 450px;
+    }
 
-        .box-container {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-        }
+    .box-container .box .content h2 {
+      font-size: 20px;
+      font-family: sans-serif;
+      color: whitesmoke;
+      padding: 8px 5px;
+      padding-top: 20px;
+    }
 
-        .box-container .box {
-            flex: 1 1 40rem;
-            padding-top: 20px;
-        }
+    .box-container .box .content a {
+      font-size: 17px;
+      font-family: sans-serif;
+      color: white;
+      padding: 8px 5px;
+      font-weight: bold;
+      background: crimson;
+    }
 
-        .box-container .box video {
-            height: 300px;
-            width: 450px;
-        }
+    .box-container .box .content a:hover {
+      color: black;
+    }
 
-        .box-container .box .content h2 {
-            font-size: 20px;
-            font-family: sans-serif;
-            color: whitesmoke;
-            padding: 8px 5px;
-            padding-top: 20px;
+    .box-container .box .content p {
+      font-size: 14px;
+      font-family: sans-serif;
+      color: #aaa;
+      padding: 5px 5px;
+      line-height: 1.5;
+      font-weight: lighter;
+    }
 
-        }
+    div.scroll-container {
+      background-color: black;
+      overflow: auto;
+      white-space: nowrap;
+      padding: 10px;
+    }
 
-        .box-container .box .content a {
-            font-size: 17px;
-            font-family: sans-serif;
-            color: white;
-            padding: 8px 5px;
-            font-weight: bold;
-            background: crimson;
+    div.scroll-container img {
+      padding: 10px;
+    }
 
-        }
+    ul {
+      display: flex;
+      /* width: calc(80% - 2rem); */
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+    }
 
-        .box-container .box .content a:hover {
-            color: black;
-        }
+    li {
+      padding: 0;
+    }
 
-        .box-container .box .content p {
-            font-size: 14px;
-            font-family: sans-serif;
-            color: #aaa;
-            padding: 5px 5px;
-            line-height: 1.5;
-            font-weight: lighter;
+    img {
+      max-width: 100%;
+      width: 100%;
+      object-fit: cover;
+      transition: all 0.2s ease;
+    }
 
-        }
+    ul:is(:hover, :focus-within) img {
+      opacity: calc(0.1 + (var(--active-lerp, 0) * 0.9));
+      filter: grayscale(calc(1 - var(--active-lerp, 0)));
+    }
 
+    :root {
+      --lerp-0: 1;
+      --lerp-1: 0.5787037;
+      --lerp-2: 0.2962963;
+      --lerp-3: 0.125;
+      --lerp-4: 0.037037;
+      --lerp-5: 0.0046296;
+      --lerp-6: 0;
+    }
 
+    a {
+      outline-offset: 4px;
+    }
 
+    li {
+      flex: calc(0.1 + (var(--active-lerp, 0) * 1));
+      transition: flex 0.2s ease;
+    }
 
+    li:is(:hover, :focus-within) {
+      --active-lerp: var(--lerp-0);
+      z-index: 7;
+    }
 
-        @media (max-width:800px) {
+    li:has(+ li:is(:hover, :focus-within)),
+    li:is(:hover, :focus-within)+li {
+      --active-lerp: var(--lerp-1);
+      z-index: 6;
+    }
 
-            html {
-                font-size: 55%;
-            }
+    li:has(+ li + li:is(:hover, :focus-within)),
+    li:is(:hover, :focus-within)+li+li {
+      --active-lerp: var(--lerp-2);
+      z-index: 5;
+    }
 
+    li:has(+ li + li + li:is(:hover, :focus-within)),
+    li:is(:hover, :focus-within)+li+li+li {
+      --active-lerp: var(--lerp-3);
+      z-index: 4;
+    }
 
-            .navbar span {
-                padding: 0 5px;
-                font-size: 18px;
-            }
+    li:has(+ li + li + li + li:is(:hover, :focus-within)),
+    li:is(:hover, :focus-within)+li+li+li+li {
+      --active-lerp: var(--lerp-4);
+      z-index: 3;
+    }
 
-            .navbar i {
+    li:has(+ li + li + li + li + li:is(:hover, :focus-within)),
+    li:is(:hover, :focus-within)+li+li+li+li+li {
+      --active-lerp: var(--lerp-5);
+      z-index: 2;
+    }
 
-                padding: 0 5px;
-            }
+    li:has(+ li + li + li + li + li + li:is(:hover, :focus-within)),
+    li:is(:hover, :focus-within)+li+li+li+li+li+li {
+      --active-lerp: var(--lerp-6);
+      z-index: 1;
+    }
 
+    .result img {
+      height: 500px;
+      width: 400px;
+    }
 
-            .box-container .box video {
-                height: 300px;
-                width: 300px;
-            }
+    @media (max-width: 800px) {
+      html {
+        font-size: 55%;
+      }
 
-        }
+      .navbar span {
+        padding: 0 5px;
+        font-size: 16px;
+      }
 
+      .navbar i {
+        padding: 0 5px;
+      }
 
-        @media (max-width:500px) {
+      .box-container .box video {
+        height: 300px;
+        width: 300px;
+      }
+    }
 
-            html {
-                font-size: 50%;
-            }
+    @media (max-width: 500px) {
+      html {
+        font-size: 50%;
+      }
 
-        }
-    </style>
+      .result img {
+        height: 350px;
+        width: 600px;
 
-
-
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <nav class="navbar">
+    <a href="index.html"><i class="fas fa-home"></i><span>home</span></a>
+    <a href="about.html"><i class="fas fa-user"></i><span>about</span></a>
+    <a href="portfolio.html"><i class="fas fa-briefcase"></i><span>work</span></a>
+    <a href="blog.html"><i class="fas fa-sun"></i><span>weather</span></a>
+    <a href="contact.html"><i class="fas fa-address-book"></i><span>contact</span></a>
+  </nav>
 
-    <nav class="navbar">
+  <br />
+  <br />
+  <br />
 
-        <a href="home.php"><i class="fas fa-home"></i><span>home</span></a>
-        <a href="about.php"><i class="fas fa-user"></i><span>about</span></a>
-        <a href="portfolio.php"><i class="fas fa-briefcase"></i><span>work</span></a>
-        <a href="blog.php"><i class="fas fa-sun"></i><span>weather</span></a>
-        <a href="contact.php"><i class="fas fa-address-book"></i><span>contact</span></a>
-
-    </nav>
-
-
-    <section>
-
-        <h1 class="heading"><span>my</span>work</h1>
+  <h1 class="heading"><span>my</span>work</h1>
 
 
-        <div class="box-container">
+  <div style="padding-top: 30px;">
+    <ul class="results">
+      <li class="result">
+        <a href="#">
+          <img src="./banner/Untitled-4.png" alt="">
+        </a>
+      </li>
+      <li class="result">
+        <a href="#"> <img src="./banner/Untitled-5.png" alt=""></a>
+      </li>
+      <li class="result">
+        <a href="#"> <img src="./banner/Untitled-6.png" alt=""></a>
+      </li>
+      <li class="result">
+        <a href="#"> <img src="./banner/Untitled-7.png" alt="">
+      <li class="result">
+        <a href="#"> <img src="./banner/Untitled-9 (1).png" alt=""></a>
+      </li>
+      <li class="result">
+        <a href="#"> <img src="./banner/Untitled-11.png" alt=""></a>
+      </li>
+      <li class="result">
+        <a href="#"> <img src="./banner/Untitled-14.png" alt=""></a>
+      </li>
+      <li class="result">
+        <a href="#"> <img src="./banner/Untitled-15.png" alt=""></a>
+      </li>
 
-            <div class="box">
-
-                <video src="dreamwedding.mp4" id="video-slider" loop autoplay muted></video>
-                <div class="content">
-                    <h2>Dream Wedding Website</h2>
-                    <p>Create a complete responsive dream wedding website frontend and backend template using
-                        html css and javascript and php and mysql database.</p>
-
-                </div>
-            </div>
-
-            <div class="box">
-
-                <video src="makeoversby.mp4" loop autoplay muted></video>
-                <div class="content">
-                    <h2>Makeovers By Mona Website</h2>
-                    <p>Create a complete responsive makeovers by mona website frontend and backend template using
-                        html css and javascript and php and mysql database.</p>
-
-                </div>
-
-
-
-
-            </div>
-
-
-
-    </section>
-
-
-    <section>
-
-
-        <div class="box-container">
-
-            <div class="box">
-
-                <video src="gym.mp4" id="video-slider" loop autoplay muted></video>
-                <div class="content">
-                    <h2>Gym Fitness Website</h2>
-                    <p>Create a complete responsive Gym Fitness website frontend and backend template using
-                        html css and javascript and php and mysql database.</p>
-
-                </div>
-            </div>
-
-            <div class="box">
-
-                <video src="coffee.mp4" loop autoplay muted></video>
-                <div class="content">
-                    <h2>Coffee Shop Website</h2>
-                    <p>Create a complete responsive Coffee Shop website frontend and backend template using
-                        html css and javascript and php and mysql database.</p>
-
-                </div>
-
-
-            </div>
+      <li class="result">
+        <a href="#"> <img src="./banner/Untitled-17.png" alt=""></a>
+      </li>
+      <li class="result">
+        <a href="#"> <img src="./banner/Untitled-13.png" alt=""></a>
+      </li>
+    </ul>
+  </div>
 
 
 
+  <section>
+    <h1 class="heading"><span>My-Website </span>Design</h1>
+    <div class="box-container">
+      <div class="box">
+        <img src="./banner/Untitled-2 (4).png" alt="">
+      </div>
+      <div class="box">
+        <img src="./banner/Untitled-2 (5).png" alt="">
+      </div>
+      <div class="box">
+        <img src="/banner/Untitled-9 (2).png" alt="">
+      </div>
+      <div class="box">
+        <img src="./banner/Untitled-9.png" alt="">
+      </div>
+      <div class="box">
+        <img src="./banner/Untitled-12.png" alt="">
+      </div>
+      <div class="box">
+        <img src="./banner/Untitled-8.png" alt="">
+      </div>
+      <div class="box">
+        <img src="./banner/Untitled-8 (1).png" alt="">
+      </div>
+      <div class="box">
+        <img src="./banner/Untitled-12 (1).png" alt="">
+      </div>
+    </div>
+  </section>
 
+
+
+  <section>
+    <h1 class="heading"><span>My-Website </span>Design</h1>
+    <div class="box-container">
+      <div class="box">
+        <img src="project1.png" alt="">
+      </div>
+
+      <div class="box">
+        <img src="project2.png" alt="">
+      </div>
+      <div class="box">
+        <img src="project4.png" alt="">
+      </div>
+
+      <div class="box">
+        <img src="template-1.png" alt="">
+      </div>
+
+      <div class="box">
+        <img src="template-2.png" alt="">
+      </div>
+      <div class="box">
+        <img src="template-3.png" alt="">
+      </div>
+      <div class="box">
+        <img src="template-7.png" alt="">
+      </div>
+
+      <div class="box">
+        <img src="project8.png" alt="">
+      </div>
+
+      <div class="box">
+        <img src="project10.png" alt="">
+      </div>
+
+      <div class="box">
+        <img src="project11.png" alt="">
+      </div>
+    </div>
+
+  </section>
+
+  <section>
+    <div class="box-container">
+      <div class="box">
+        <video src="D-pizza..mp4" id="video-slider" loop autoplay muted></video>
+        <div class="content">
+          <h2>Online D-Pizza. Website</h2>
+          <p>
+            created a complete responsive D-Pizza. website frontend and
+            backend template using html css bootstrap5 and javascript and php
+            and mysql database.
+          </p>
         </div>
-
-    </section>
-
-
-
-    <section>
-
-
-        <div class="box-container">
-
-            <div class="box">
-                <video src="healthyfood.mp4" id="video-slider" loop autoplay muted></video>
-                <div class="content">
-                    <h2>Healthy Food Website</h2>
-                    <p>Create a complete responsive healthy food website frontend and backend template using
-                        html css and javascript and php and mysql database.</p>
-
-                </div>
-            </div>
-
-            <div class="box">
-                <video src="travel.mp4" loop autoplay muted></video>
-                <div class="content">
-                    <h2>Travel Website</h2>
-                    <p>Create a complete responsive travel website frontend and backend template using
-                        html css and javascript and php and mysql database.</p>
-
-                </div>
-            </div>
+      </div>
+      <div class="box">
+        <video src="video.mp4" id="video-slider" loop autoplay muted></video>
+        <div class="content">
+          <h2>Shoes E-commerce Website</h2>
+          <p>
+            created a complete responsive e-commerce website frontend and
+            backend template using html css bootstrap5 and javascript and php
+            and mysql database.
+          </p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-
-
-    <section>
-
-
-        <div class="box-container">
-
-            <div class="box">
-                <video src="template-9.mp4" id="video-slider" loop autoplay muted></video>
-                <div class="content">
-                    <h2>Healthy Food Website</h2>
-                    <p>Create a complete responsive healthy food website frontend and backend template using
-                        html css and javascript and php and mysql database.</p>
-
-                </div>
-            </div>
-
-            <div class="box">
-                <video src="travel.mp4" loop autoplay muted></video>
-                <div class="content">
-                    <h2>Travel Website</h2>
-                    <p>Create a complete responsive travel website frontend and backend template using
-                        html css and javascript and php and mysql database.</p>
-
-                </div>
-            </div>
+  <section>
+    <div class="box-container">
+      <div class="box">
+        <video src="dreamwedding.mp4" id="video-slider" loop autoplay muted></video>
+        <div class="content">
+          <h2>Dream Wedding Website</h2>
+          <p>
+            created a complete responsive dream wedding website frontend and
+            backend template using html css and javascript and php and mysql
+            database.
+          </p>
         </div>
-    </section>
+      </div>
 
+      <div class="box">
+        <video src="makeoversby.mp4" loop autoplay muted></video>
+        <div class="content">
+          <h2>Makeovers By Mona Website</h2>
+          <p>
+            created a complete responsive makeovers by mona website frontend
+            and backend template using html css and javascript and php and
+            mysql database.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <section>
+    <div class="box-container">
+      <div class="box">
+        <video src="gym.mp4" id="video-slider" loop autoplay muted></video>
+        <div class="content">
+          <h2>Gym Fitness Website</h2>
+          <p>
+            created a complete responsive Gym Fitness website frontend and
+            backend template using html css and javascript and php and mysql
+            database.
+          </p>
+        </div>
+      </div>
 
+      <div class="box">
+        <video src="coffee.mp4" loop autoplay muted></video>
+        <div class="content">
+          <h2>Coffee Shop Website</h2>
+          <p>
+            created a complete responsive Coffee Shop website frontend and
+            backend template using html css and javascript and php and mysql
+            database.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <section>
+    <div class="box-container">
+      <div class="box">
+        <video src="healthyfood.mp4" id="video-slider" loop autoplay muted></video>
+        <div class="content">
+          <h2>Healthy Food Website</h2>
+          <p>
+            created a complete responsive healthy food website frontend and
+            backend template using html css and javascript and php and mysql
+            database.
+          </p>
+        </div>
+      </div>
 
+      <div class="box">
+        <video src="travel.mp4" loop autoplay muted></video>
+        <div class="content">
+          <h2>Travel Website</h2>
+          <p>
+            created a complete responsive travel website frontend and backend
+            template using html css and javascript and php and mysql database.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <section>
+    <div class="box-container">
+      <div class="box">
+        <video src="template-9.mp4" id="video-slider" loop autoplay muted></video>
+        <div class="content">
+          <h2>Healthy Food Website</h2>
+          <p>
+            created a complete responsive healthy food website frontend and
+            backend template using html css and javascript and php and mysql
+            database.
+          </p>
+        </div>
+      </div>
 
+      <div class="box">
+        <video src="travel.mp4" loop autoplay muted></video>
+        <div class="content">
+          <h2>Travel Website</h2>
+          <p>
+            created a complete responsive travel website frontend and backend
+            template using html css and javascript and php and mysql database.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // gesture detect
+    document.addEventListener("touchstart", handleTouchStart, false);
+    document.addEventListener("touchmove", handleTouchMove, false);
+
+    var xDown = null;
+    var yDown = null;
+
+    function getTouches(evt) {
+      return (
+        evt.touches || // browser API
+        evt.originalEvent.touches
+      ); // jQuery
+    }
+
+    function handleTouchStart(evt) {
+      const firstTouch = getTouches(evt)[0];
+      xDown = firstTouch.clientX;
+      yDown = firstTouch.clientY;
+    }
+
+    function handleTouchMove(evt) {
+      if (!xDown || !yDown) {
+        return;
+      }
+
+      var xUp = evt.touches[0].clientX;
+      var yUp = evt.touches[0].clientY;
+
+      var xDiff = xDown - xUp;
+      var yDiff = yDown - yUp;
+
+      if (Math.abs(xDiff) > Math.abs(yDiff)) {
+        if (xDiff > 0) {
+          if (scrollPos < window.innerWidth * 0.6 * slides.length)
+            scrollPos += 100;
+        } else {
+          if (scrollPos != 0) scrollPos -= 100;
+        }
+
+        slides.forEach((slide, index) => {
+          /*if (slide == slides[slides.length - 1]) {
+ 
+          if (window.innerWidth * 0.8 * slides.length < scrollPos) {
+            return;
+          }
+        }*/
+
+          //console.log(slide);
+          let photo = slide.querySelector(".photo");
+          let text = slide.querySelector(".text");
+          photo.style.transform = `translateX(-${scrollPos}px)`;
+          text.style.transform = `translateX(-${scrollPos}px)`;
+        });
+      }
+      /* reset values */
+      xDown = null;
+      yDown = null;
+    }
+
+    /* gallery */
+
+    $(document).ready(function () {
+      var zindex = 10;
+
+      $("div.card").click(function (e) {
+        e.preventDefault();
+
+        var isShowing = false;
+
+        if ($(this).hasClass("show")) {
+          isShowing = true;
+        }
+
+        if ($("div.cards").hasClass("showing")) {
+          // a card is already in view
+          $("div.card.show").removeClass("show");
+
+          if (isShowing) {
+            // this card was showing - reset the grid
+            $("div.cards").removeClass("showing");
+          } else {
+            // this card isn't showing - get in with it
+            $(this).css({ zIndex: zindex }).addClass("show");
+          }
+
+          zindex++;
+        } else {
+          // no cards in view
+          $("div.cards").addClass("showing");
+          $(this).css({ zIndex: zindex }).addClass("show");
+
+          zindex++;
+        }
+      });
+    });
+  </script>
 </body>
-
 
 </html>
