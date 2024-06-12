@@ -2,645 +2,1080 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Information</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            text-decoration: none;
-            outline: none;
-            border: none;
-            text-transform: capitalize;
-        }
-
-        ::selection {
-            background: crimson;
-        }
-
-        html {
-            font-size: 62%;
-            overflow-x: hidden;
-        }
-
-        html::-webkit-scrollbar {
-            width: 1rem;
-        }
-
-        body {
-            background: #0d0d0d;
-        }
-
-        .navbar {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            display: flex;
-            z-index: 1000;
-            align-items: flex-end;
-        }
-
-        .navbar a {
-            padding: 8px 5px;
-            font-size: 20px;
-            background: #1a1a1a;
-            flex: 1;
-            color: white;
-            text-align: center;
-            font-family: serif;
-            transition: .2s linear;
-
-        }
-
-        .navbar i {
-            color: crimson;
-            padding-right: 5px;
-
-        }
-
-        .navbar a:hover {
-            background: crimson;
-            padding-bottom: 30px;
-        }
-
-        .navbar a:hover i {
-            color: white;
-        }
-
-        /*-------------------home-section-------------*/
-
-        section {
-            padding: 30px 9%;
-        }
-
-        .home {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 40px;
-            min-height: calc(100vh - 6rem);
-        }
-
-        .home .image {
-            flex: 1 1 35rem;
-
-        }
-
-        .home .image img {
-            height: 50rem;
-            width: 50rem;
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-        }
-
-        .home .content {
-            flex: 1 1 35rem;
-
-        }
-
-        .home .content h3 {
-            color: white;
-            font-size: 22px;
-            padding-bottom: 5px;
-            font-family: sans-serif;
-        }
-
-        .home .content span {
-            font-size: 18px;
-            color: crimson;
-            padding: 5px 0;
-            display: block;
-            font-family: sans-serif;
-        }
-
-        .home .content p {
-            font-size: 15px;
-            color: #aaa;
-            padding: 5px 0;
-            line-height: 2;
-            font-family: sans-serif;
-
-        }
-
-        .home .content .btn {
-            display: inline-block;
-            margin-top: 5px;
-            padding: 8px;
-            font-size: 18px;
-            background: crimson;
-            color: white;
-            border-radius: 5px;
-            font-family: serif;
-        }
-
-        .home .content i {
-            height: 25px;
-            width: 25px;
-            font-size: 15px;
-            line-height: 25px;
-            text-align: center;
-            background: white;
-            color: crimson;
-            border-radius: 50%;
-            margin-left: 4px;
-            transition: .2s linear;
-        }
-
-        .home .content :hover i {
-            margin-left: 8px;
-
-        }
-
-
-
-        /*--------------------skills-section----------------------*/
-
-
-        .heading-2 {
-            text-align: center;
-            font-size: 30px;
-            color: whitesmoke;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        .heading-2 span {
-            text-transform: uppercase;
-            color: crimson;
-        }
-
-        .skills .box-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            padding-top: 20px;
-        }
-
-        .skills .box-container .box {
-            padding: 10px;
-            text-align: center;
-            box-shadow: rgba(0, 0, 0, .7);
-            border-radius: 5px;
-            background: #1a1a1a;
-            margin: 0 15px;
-            padding-top: 8px;
-            transition: .5s linear;
-
-        }
-
-        .skills .box-container .box img {
-            height: 80px;
-        }
-
-        .skills .box-container .box h3 {
-            font-size: 13px;
-            color: whitesmoke;
-            font-family: sans-serif;
-            padding: 5px 0;
-            text-transform: uppercase;
-
-        }
-
-        .skills .box-container .box:hover {
-            background: whitesmoke;
-
-
-        }
-
-        .skills .box-container .box:hover h3 {
-            color: black;
-
-        }
-
-        /*-------------------------Trainers-section---------------------*/
-
-
-        .heading {
-            text-align: center;
-            font-size: 30px;
-            color: whitesmoke;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        .heading span {
-            text-transform: uppercase;
-            color: crimson;
-        }
-
-
-        .trainers {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-
-        }
-
-        .trainers .box-container .box {
-            overflow: hidden;
-            position: relative;
-            padding: 12px 0;
-        }
-
-        .trainers .box-container .box:hover .content {
-            transform: translateY(0);
-        }
-
-        .trainers .box-container .box img {
-            width: 400px;
-            height: 300px;
-            object-fit: cover;
-        }
-
-        .trainers .box-container .content {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: slategray;
-            padding: 5px;
-            transform: translateY(6rem);
-        }
-
-        .trainers .box-container .content span {
-            font-size: 18px;
-            color: wheat;
-            padding: 5px;
-        }
-
-        .trainers .box-container .content h3 {
-            font-size: 15px;
-            color: whitesmoke;
-            padding: 5px;
-        }
-
-        .trainers .box-container .content .share {
-            border-top: 1px solid whitesmoke;
-        }
-
-        .heading-2 {
-            font-size: 22px;
-            color: wheat;
-            font-family: serif;
-            padding: 10px 0;
-            text-align: center;
-        }
-
-        .banner {
-            background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url('banner-bg.jpg') no-repeat;
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            text-align: center;
-
-        }
-
-        .banner span {
-            font-size: 20px;
-            color: wheat;
-            padding: 5px 0;
-
-        }
-
-        .banner h3 {
-            font-size: 25px;
-            color: whitesmoke;
-            text-transform: uppercase;
-            padding-top: 5px;
-        }
-
-        .banner p {
-            font-size: 15px;
-            padding-top: 10px;
-            margin: 5px auto;
-            color: whitesmoke;
-            max-width: 50rem;
-            padding-bottom: 20px;
-            line-height: 1.5;
-        }
-
-        .btn-items {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .btn-details {
-            display: inline-block;
-            margin-top: 5px;
-            padding: 8px;
-            font-size: 18px;
-            background: crimson;
-            color: white;
-            border-radius: 5px;
-            font-family: serif;
-        }
-
-
-
-
-
-
-
-
-
-
-        @media (max-width:800px) {
-
-            html {
-                font-size: 55%;
-            }
-
-
-            .navbar span {
-                padding: 0 5px;
-                font-size: 18px;
-            }
-
-            .navbar i {
-
-                padding: 0 5px;
-            }
-
-            .home {
-                text-align: center;
-            }
-
-            .home .image img {
-                height: 30rem;
-                width: 30rem;
-            }
-
-            .trainers .box-container .box img {
-                width: 300px;
-                height: 200px;
-            }
-
-        }
-
-
-        @media (max-width:500px) {
-
-            html {
-                font-size: 50%;
-            }
-
-        }
-    </style>
-
-
-
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Information</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+  <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      text-decoration: none;
+      outline: none;
+      border: none;
+      text-transform: capitalize;
+    }
+
+    ::selection {
+      background: crimson;
+    }
+
+    html {
+      font-size: 62%;
+      overflow-x: hidden;
+    }
+
+    html::-webkit-scrollbar {
+      width: 1rem;
+    }
+
+    body {
+      background: #0d0d0d;
+     
+    }
+
+    .navbar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      z-index: 1000;
+      align-items: flex-end;
+    }
+
+    .navbar a {
+      padding: 5px 8px;
+      font-size: 17px;
+      background: #1a1a1a;
+      flex: 1;
+      color: white;
+      text-align: center;
+      font-family: math;
+      transition: 0.2s linear;
+    }
+
+    .navbar i {
+      color: crimson;
+      padding-right: 5px;
+    }
+
+    .navbar a:hover {
+      background: crimson;
+      padding-bottom: 30px;
+    }
+
+    .navbar a:hover i {
+      color: white;
+    }
+
+    /*-------------------home-section-------------*/
+
+    section {
+      padding: 30px 9%;
+    }
+
+    .home {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      min-height: calc(100vh - 6rem);
+    }
+
+    .home .image {
+      flex: 1 1 35rem;
+    }
+
+    .home .image img {
+      height: 50rem;
+      width: 50rem;
+      border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+      position: relative;
+      position: relative;
+      animation-name: example;
+      animation-duration: 4s;
+      animation-delay: 2s;
+      animation-iteration-count: 2;
+    }
+
+    @keyframes example {
+      0% {
+        left: 0px;
+        top: 0px;
+      }
+
+      25% {
+        left: 0px;
+        top: 100px;
+      }
+
+      50% {
+        left: 0px;
+        bottom: 200px;
+      }
+
+      100% {
+        left: 0px;
+        top: 0px;
+      }
+    }
+
+    .home .content {
+      flex: 1 1 35rem;
+    }
+
+    .home .content h3 {
+      color: white;
+      font-size: 22px;
+      padding-bottom: 5px;
+      font-family: sans-serif;
+    }
+
+    .home .content span {
+      font-size: 18px;
+      color: crimson;
+      padding: 5px 0;
+      display: block;
+      font-family: sans-serif;
+    }
+
+    .home .content p {
+      font-size: 15px;
+      color: #aaa;
+      padding: 5px 0;
+      line-height: 2;
+      font-family: sans-serif;
+    }
+
+    .home .content .btn {
+      display: inline-block;
+      margin-top: 5px;
+      padding: 8px;
+      font-size: 18px;
+      background: crimson;
+      color: white;
+      border-radius: 5px;
+      font-family: serif;
+      animation-name: btn-animation;
+      position: relative;
+      animation-duration: 4s;
+      animation-delay: 2s;
+      animation-iteration-count: 3;
+    }
+
+    @keyframes btn-animation {
+      0% {
+        left: 0px;
+        top: 0px;
+      }
+
+      25% {
+        left: 200px;
+        top: 0px;
+      }
+
+      50% {
+        left: 0px;
+        bottom: 200px;
+      }
+
+      100% {
+        left: 0px;
+        top: 0px;
+      }
+    }
+
+    .home .content i {
+      height: 25px;
+      width: 25px;
+      font-size: 15px;
+      line-height: 25px;
+      text-align: center;
+      background: white;
+      color: crimson;
+      border-radius: 50%;
+      margin-left: 4px;
+      transition: 0.2s linear;
+    }
+
+    .home .content :hover i {
+      margin-left: 8px;
+    }
+
+    /*--------------------skills-section----------------------*/
+
+    .heading-2 {
+      text-align: center;
+      font-size: 30px;
+      color: whitesmoke;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .heading-2 span {
+      text-transform: uppercase;
+      color: crimson;
+    }
+
+    .skills .box-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding-top: 20px;
+    }
+
+    .skills .box-container .box {
+      padding: 10px;
+      text-align: center;
+      box-shadow: rgba(0, 0, 0, 0.7);
+      border-radius: 5px;
+      background: #1a1a1a;
+      margin: 0 15px;
+      padding-top: 8px;
+      transition: 0.5s linear;
+    }
+
+    .skills .box-container .box img {
+      height: 80px;
+    }
+
+    .skills .box-container .box h3 {
+      font-size: 13px;
+      color: whitesmoke;
+      font-family: sans-serif;
+      padding: 5px 0;
+      text-transform: uppercase;
+    }
+
+    .skills .box-container .box:hover {
+      background: whitesmoke;
+    }
+
+    .skills .box-container .box:hover h3 {
+      color: black;
+    }
+
+    /*-------------------------Trainers-section---------------------*/
+
+    .heading {
+      text-align: center;
+      font-size: 30px;
+      color: whitesmoke;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    .heading span {
+      text-transform: uppercase;
+      color: crimson;
+    }
+
+    .trainers {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .trainers .box-container .box {
+      overflow: hidden;
+      position: relative;
+      padding: 12px 0;
+    }
+
+    .trainers .box-container .box:hover .content {
+      transform: translateY(0);
+    }
+
+    .trainers .box-container .box img {
+      width: 400px;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .trainers .box-container .content {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: slategray;
+      padding: 5px;
+      transform: translateY(6rem);
+    }
+
+    .trainers .box-container .content span {
+      font-size: 18px;
+      color: wheat;
+      padding: 5px;
+    }
+
+    .trainers .box-container .content h3 {
+      font-size: 15px;
+      color: whitesmoke;
+      padding: 5px;
+    }
+
+    .trainers .box-container .content .share {
+      border-top: 1px solid whitesmoke;
+    }
+
+    .heading-2 {
+      font-size: 22px;
+      color: wheat;
+      font-family: serif;
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    .banner {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url("banner-bg.jpg") no-repeat;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      text-align: center;
+    }
+
+    .banner span {
+      font-size: 20px;
+      color: wheat;
+      padding: 5px 0;
+    }
+
+    .banner h3 {
+      font-size: 25px;
+      color: whitesmoke;
+      text-transform: uppercase;
+      padding-top: 5px;
+    }
+
+    .banner p {
+      font-size: 15px;
+      padding-top: 10px;
+      margin: 5px auto;
+      color: whitesmoke;
+      max-width: 50rem;
+      padding-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .btn-items {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-details {
+      display: inline-block;
+      margin-top: 5px;
+      padding: 8px;
+      font-size: 18px;
+      background: crimson;
+      color: white;
+      border-radius: 5px;
+      font-family: serif;
+    }
+
+    .step-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 10px 8px;
+    }
+
+    .step-container .step {
+      background: #131212;
+      padding: 10px;
+      margin: 10px;
+      border-radius: 10px;
+      border: none;
+      box-shadow: 8px 5px rgba(0, 0, 0, 0.3);
+      flex: 1 1 10rem;
+      align-items: center;
+    }
+
+    .step-container .step span {
+      font-size: 22px;
+      color: #ee0548;
+      font-weight: bolder;
+    }
+
+    .step-container .step h3 {
+      font-size: 20px;
+      color: #ee0548;
+      padding: 7px;
+      font-family: sans-serif;
+    }
+
+    .step-container .step h5 {
+      font-size: 13px;
+      color: whitesmoke;
+      padding: 3px 3px;
+      font-family: sans-serif;
+      text-align: left;
+    }
+
+    .lbvXTF {
+      position: fixed;
+      z-index: 99999999;
+      margin: 70px 10px;
+      inset: auto 0px 0px auto;
+    }
+
+
+
+    @media (max-width: 800px) {
+      html {
+        font-size: 55%;
+      }
+
+      .navbar span {
+        padding: 0 5px;
+        font-size: 16px;
+      }
+
+      .navbar i {
+        padding: 0 5px;
+      }
+
+      .home {
+        text-align: center;
+      }
+
+      .home .image img {
+        height: 30rem;
+        width: 30rem;
+      }
+
+      .trainers .box-container .box img {
+        width: 300px;
+        height: 200px;
+      }
+
+      .step-container {
+        display: inline;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 10px 8px;
+      }
+    }
+
+    div.scroll-container {
+      background-color: black;
+      overflow: auto;
+      white-space: nowrap;
+      padding: 10px;
+    }
+
+    div.scroll-container img {
+      padding: 10px;
+    }
+
+
+    /*----------------start project section -------------*/
+    #portfolio {
+      padding: 50px 0;
+    }
+
+    #portfolio .contenier {
+      text-align: center;
+      padding: 0 30px;
+    }
+
+    #portfolio .contenier p {
+      margin-top: 8px;
+    }
+
+    .work-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-gap: 40px;
+      margin-top: 50px;
+
+    }
+
+    .work {
+      border-radius: 10px;
+      position: relative;
+      overflow: hidden;
+
+    }
+
+    .work img {
+      width: 100%;
+      border-radius: 10px;
+      display: block;
+      transition: transform 0.5s;
+    }
+
+    .layer {
+      width: 100%;
+      height: 0;
+      background: linear-gradient(#3383b3f2, #97253ae8);
+      border-radius: 5px;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 0 40px;
+      text-align: center;
+      font-size: 14px;
+      transition: height 0.5s;
+    }
+
+    .layer h3 {
+      font-weight: 600;
+      font-family: system-ui;
+      margin-bottom: 8px;
+    }
+
+    .layer a {
+      margin-top: 5px;
+      color: crimson;
+      text-decoration: none;
+      font-size: 18px;
+      line-height: 40px;
+      background: #fff;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      text-align: center;
+    }
+
+    .layer P{
+      margin-top: 5px;
+    }
+
+    .work:hover img {
+      transform: scale(1.1);
+    }
+
+    .work:hover .layer {
+      height: 100%;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 5px;
+      padding: 8px;
+      font-size: 18px;
+      background: crimson;
+      color: white;
+      border-radius: 5px;
+      font-family: serif;
+      animation-name: btn-animation;
+      position: relative;
+      animation-duration: 4s;
+      animation-delay: 2s;
+      animation-iteration-count: 3;
+    }
+
+    .btn:hover {
+      background: crimson;
+      transform: scale(1.1);
+    }
+
+    #contact {
+      background: #092d38;
+      padding-top: 50px;
+    }
+
+    .contact-left {
+      flex-basis: 35%;
+    }
+
+    .contact-right {
+      flex-basis: 60%;
+    }
+
+    .contact-left p {
+      margin-top: 30px;
+
+    }
+
+    .contact-left p i {
+      color: #1092de;
+      margin-right: 15px;
+      font-size: 25px;
+
+    }
+
+    @media (max-width: 500px) {
+      html {
+        font-size: 50%;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <nav class="navbar">
+    <a href="index.html"><i class="fas fa-home"></i><span>home</span></a>
+    <a href="about.html"><i class="fas fa-user"></i><span>about</span></a>
+    <a href="portfolio.html"><i class="fas fa-briefcase"></i><span>work</span></a>
+    <a href="blog.html"><i class="fas fa-sun"></i><span>weather</span></a>
+    <a href="contact.html"><i class="fas fa-address-book"></i><span>contact</span></a>
+  </nav>
 
-    <nav class="navbar">
+  <br />
+  <br />
 
-        <a href="index.php"><i class="fas fa-home"></i><span>home</span></a>
-        <a href="about.html"><i class="fas fa-user"></i><span>about</span></a>
-        <a href="portfolio.html"><i class="fas fa-briefcase"></i><span>work</span></a>
-        <a href="blog.html"><i class="fas fa-sun"></i><span>weather</span></a>
-        <a href="contact.html"><i class="fas fa-address-book"></i><span>contact</span></a>
-
-    </nav>
-
-    <br>
-    <br>
+  <div style="display: flex; align-items: center; justify-content: center;">
+   
     <h1 class="heading"><span>My</span> Information</h1>
-
-    <section class="home">
-
-
-        <div class="image">
-            <img src="image1.jpg" alt="">
-        </div>
-
-        <div class="content">
-            <h3>Hey, I Am Dheeraj Verma</h3>
-            <span>Website Developer</span>
-            <p>I live in bhopal I have done B.tech in computer science from trinity institute of
-                technology and research. </p>
-            <a href="about.html" class="btn">about me <i class="fas fa-user"></i></a>
-        </div>
-
-
-    </section>
-
-
-    <section class="skills">
-
-        <h1 class="heading"><span>My</span> Skills</h1>
-
-        <div class="box-container">
-
-            <div class="box">
-                <img src="html-5.png" alt="">
-                <h3>html</h3>
-            </div>
-
-            <div class="box">
-                <img src="css-3.png" alt="">
-                <h3>css</h3>
-            </div>
-
-            <div class="box">
-                <img src="java-script.png" alt="">
-                <h3>java-script</h3>
-            </div>
-
-            <div class="box">
-                <img src="php.png" alt="">
-                <h3>php</h3>
-            </div>
-
-            <div class="box">
-                <img src="python.png" alt="">
-                <h3>python</h3>
-            </div>
-
-            <div class="box">
-                <img src="figma.png" alt="">
-                <h3>figma</h3>
-            </div>
-
-
-        </div>
-
-
-        <div class="box-container">
-
-
-            <div class="box">
-                <img src="react.png" alt="">
-                <h3>react</h3>
-            </div>
-
-            <div class="box">
-                <img src="wordpress.png" alt="">
-                <h3>wordpress</h3>
-            </div>
-
-            <div class="box">
-                <img src="mysql.png" alt="">
-                <h3>my sql</h3>
-            </div>
-
-            <div class="box">
-                <img src="c.png" alt="">
-                <h3>c++</h3>
-            </div>
-
-
-        </div>
-
-
-    </section>
-
-    <div class="btn-items">
-        <a href="about.html" class="btn-details">More Details</a>
+  </div>
+ 
+  <section class="home">
+    <div class="image">
+      <img src="image1.jpg" alt="" />
     </div>
 
+    <div class="content">
+      <h3 style="font-family: monospace; font-weight: 700;">Hey, I Am Dheeraj Verma</h3>
+      <span style="font-family: monospace; font-weight: 700;"><span>Full Stack Web Developer</span>
+      <p style="font-family: monospace; font-weight: 700;">
+        I live in bhopal I have done B.tech in computer science from trinity
+        institute of technology and research and 2 years Experience In Website
+        Development
+      </p>
+      <a href="about.html" class="btn">about me <i class="fas fa-user"></i></a>
+    </div>
+  </section>
 
+
+
+
+
+  <section class="skills">
+    <h1 class="heading"><span>My</span> Skills</h1>
     <br>
-    <h1 class="heading"><span>My</span> Projects </h1>
+    
+    <div class="scroll-container">
+      <img src="html-5.png" alt="Cinque Terre" height="100px">
+      <img src="css-3.png" alt="Forest" height="100px">
+      <img src="java-script.png" alt="Cinque Terre" height="100px">
+      <img src="figma.png" alt="Forest" height="100px">
+      <img src="icons8-bootstrap-144.png" alt="Forest" height="100px">
+      <img src="wordpress.png" alt="Forest" height="100px">
+      <img src="react.png" alt="Forest" height="100px">
+      <img src="php.png" alt="Forest" height="100px">
+      <img src="mongodb.png" alt="Cinque Terre" height="100px">
+      <img src="mysql.png" alt="Forest" height="100px">
+      <img src="php.png" alt="Forest" height="100px">
+      <img src="nodejs_919825.png" alt="Forest" height="100px">
+      <img src="python.png" alt="Cinque Terre" height="100px">
+      <img src="icons8-flutter-144.png" alt="Forest" height="100px">
+      <img src="c.png" alt="Cinque Terre" height="100px">
+      
+  
+    </div>
+    
+  </section>
+
+  <div class="btn-items">
+    <a href="about.html" class="btn-details">More Details</a>
+  </div>
+
+  <br />
+  <h1 class="heading">Services <span>Now</span></h1>
+  <section class="step-container" id="about">
+    <div class="step" >
+      <span>01 </span>
+      <h3 style="font-family: cursive">Website Desgin</h3>
+      <img src="web-icon5.svg" alt="" height="200px">
+      <p style="font-family: sans-serif;
+      font-size: 16px;
+      color: whitesmoke;
+      text-align: justify;
+      line-height: 1.5;" >
+        Web Desgin is the process of creating and maintaining websites, which
+        are online platforms that serve a variety of purposes, such as news,
+        entertainment, and communication. It encompasses a wide range of
+        activities, including web design, programming, server administration,
+        and content management.
+      </p>
+    </div>
+
+    <div class="step">
+      <span>02</span>
+      <h3 style="font-family: cursive" >Website Development</h3>
+      <img src="web-icon3.svg" alt="" height="200px">
+      <p style="font-family: sans-serif;
+      font-size: 16px;
+      color: whitesmoke;
+      text-align: justify;
+      line-height: 1.3;" >
+        Web development is the process of creating and maintaining websites,
+        which are online platforms that serve a variety of purposes, such as
+        e-commerce, news, entertainment, and communication. It encompasses a
+        wide range of activities, including web design, programming, server
+        administration, and content management. The web development process
+        starts with the creation of a plan for the website, which includes
+        determining the purpose of the site, the target audience, and the
+        features and functionality that are required.
+    </p>
+    </div>
+    <div class="step">
+      <span>03</span>
+      <h3 style="font-family: cursive">E-commerce Website Development</h3>
+      <img src="web-icon4.svg" alt="" height="200px">
+      <p  style="font-family: sans-serif;
+      font-size: 16px;
+      color: whitesmoke;
+      text-align: justify;
+      line-height: 1.5;" >
+        Ecommerce is a method of buying and selling goods and services online.
+        The definition of ecommerce business can also include tactics like
+        affiliate marketing. You can use ecommerce channels such as your own
+        website, an established selling website like Amazon, or social media
+        to drive online sales.
+    </p>
+    </div>
+  </section>
+
+  <br />
+  <h1 class="heading"><span>My</span> Projects</h1>
 
 
+  <br />
+  <br>
+  <h1 class="heading">Banner Desgin</h1>
+
+  <br>
+  <div class="scroll-container">
+    <img src="./banner/Untitled-5.png" alt="" height="400px">
+    <img src="./banner/Untitled-6.png" alt="" height="400px">
+    <img src="./banner/Untitled-4.png" alt="" height="400px">
+    <img src="./banner/Untitled-7.png" alt="" height="400px">
+    <img src="./banner/Untitled-7 (1).png" alt="" height="400px">
+    <img src="./banner/Untitled-11.png" alt="" height="400px">
+    <img src="./banner/Untitled-9 (1).png" alt="" height="400px">
+    <img src="./banner/Untitled-17.png" alt="" height="400px">
+    <img src="./banner/Untitled-13.png" alt="" height="400px">
+    <img src="./banner/Untitled-14.png" alt="" height="400px">
+    <img src="./banner/Untitled-15.png" alt="" height="400px">
+
+
+  </div>
+
+  <div class="scroll-container">
+    <img src="./banner/Untitled-9.png" alt="" height="200px">
+    <img src="./banner/Untitled-9 (2).png" alt="" height="200px">
+    <img src="./banner/Untitled-12.png" alt="" height="200px">
+    <img src="./banner/Untitled-12 (1).png" alt="" height="200px">
+    <img src="./banner/Untitled-8.png" alt="" height="200px">
+    <img src="./banner/Untitled-8 (1).png" alt="" height="200px">
+
+
+  </div>
+
+
+  <!-- My project -->
+
+  <h1 class="heading" style="padding-top: 40px;" >Website Desgin</h1>
+  <div class="scroll-container">
+    <img src="mob1.png" alt="Cinque Terre" height="400px">
+    <img src="mob2.png" alt="Forest" height="400px">
+    <img src="mob3.png" alt="Cinque Terre" height="400px">
+    <img src="mob4.png" alt="Forest" height="400px">
+    <img src="mob5.png" alt="Cinque Terre" height="400px">
+    <img src="mob6.png" alt="Forest" height="400px">
+    <img src="mob7.png" alt="Forest" height="400px">
+    <img src="mob8.png" alt="Cinque Terre" height="400px">
+    <img src="mob9.png" alt="Forest" height="400px">
+    <img src="mob10.png" alt="Forest" height="400px">
+
+
+  </div>
+
+
+  <div id="portfolio">
+    <div class="contenier">
+      <h1 class="sub-title">My Repositories</h1>
+      <p>Creative endeavours will reveal one's talent and commitment..</p>
+      
+      <div class="work-list">
+
+        <div class="work">
+          <img src="project4.png" alt="">
+          <div class="layer">
+            <h3>Bloging Website</h3>
+            <p>This website has been link here please visit</p>
+            <a target="_blank" href="https://vermadheeraj.github.io/Perfect/"><i
+                class="fa-solid fa-up-right-from-square"></i></a>
+          </div>
+
+        </div>
+        <div class="work">
+          <img src="project8.png">
+          <div class="layer">
+            <h3>Dream Wedding Studio Website</h3>
+            <p>This website has been link here please visit</p>
+            <a target="_blank" href="https://vermadheeraj.github.io/Dream-Wedding/index.html"><i
+                class="fa-solid fa-up-right-from-square"></i></a>
+          </div>
+
+        </div>
+        
+
+
+      </div>
+
+      
+      <div class="work-list">
+
+        <div class="work">
+          <img src="template-1.png" alt="">
+          <div class="layer">
+            <h3>Pizza Website</h3>
+            <p>This website has been link here please visit</p>
+            <a target="_blank" href="https://vermadheeraj.github.io/Pizza./"><i
+                class="fa-solid fa-up-right-from-square"></i></a>
+          </div>
+
+        </div>
+        <div class="work">
+          <img src="template-2.png">
+          <div class="layer">
+            <h3>University Website</h3>
+            <p>This website has been link here please visit</p>
+            <a target="_blank" href="https://vermadheeraj.github.io/university/"><i
+                class="fa-solid fa-up-right-from-square"></i></a>
+          </div>
+
+        </div>
+        <div class="work">
+          <img src="template-3.png">
+          <div class="layer">
+            <h3>Gym Fitnees Website</h3>
+            <p>This website has been link here please visit</p>
+            <a target="_blank" href="https://vermadheeraj.github.io/university/"><i
+                class="fa-solid fa-up-right-from-square"></i></a>
+          </div>
+
+        </div>
+
+
+      </div>
+
+      
+      <div class="work-list">
+
+        <div class="work">
+          <img src="project11.png" alt="">
+          <div class="layer">
+            <h3>shopping Website</h3>
+            <p>This website has been link here please visit</p>
+            <a target="_blank" href="https://vermadheeraj.github.io/smart-watch/"><i
+                class="fa-solid fa-up-right-from-square"></i></a>
+          </div>
+
+        </div>
+        
+        <div class="work">
+          <img src="template-8.png">
+          <div class="layer">
+            <h3>Gym Fitnees Website</h3>
+            <p>This website has been link here please visit</p>
+            <a target="_blank" href="https://vermadheeraj.github.io/smart-watch/"><i
+                class="fa-solid fa-up-right-from-square"></i></a>
+          </div>
+
+        </div>
+
+
+      </div>
+      <br>
+      <a href="portfolio.html" class="btn">More Details</a>
+
+    </div>
+  </div>
+
+  <!--
 
     <section class="trainers" id="trainers">
-
-
-        <div class="box-container">
-            <div class="box">
-                <img src="template-1.png" alt="">
-                <div class="content">
-                    <span>Pizza. Website</span>
-                    <h3>John Deo</h3>
-                    <div class="share">
-                        <a href=""><i></i></a>
-                    </div>
-                </div>
+      <div class="box-container" style="padding: 20px">
+        <div class="box">
+          <img src="project1.png" alt="" />
+          <div class="content">
+            <span>Online Pizza. Website</span>
+            
+            <div class="share">
+              <a href=""><i></i></a>
             </div>
+          </div>
         </div>
-
-        <div class="box-container">
-            <div class="box">
-                <img src="template-2.png" alt="">
-                <div class="content">
-                    <span>Expert Trainers</span>
-                    <h3>Ranbir Verma</h3>
-                    <div class="share">
-                        <a href=""><i></i></a>
-                    </div>
-                </div>
+      </div>
+      <div class="box-container" style="padding: 20px">
+        <div class="box">
+          <img src="project2.png" alt="" />
+          <div class="content">
+            <span>Shoes Website</span>
+            
+            <div class="share">
+              <a href=""><i></i></a>
             </div>
+          </div>
         </div>
+      </div>
 
-
-        <div class="box-container">
-            <div class="box">
-                <img src="template-3.png" alt="">
-                <div class="content">
-                    <span>Expert Trainers</span>
-                    <h3>Vijay Rai</h3>
-                    <div class="share">
-                        <a href=""><i></i></a>
-                    </div>
-                </div>
-            </div>
+    <div class="box-container" style="padding: 20px">
+      <div class="box">
+        <img src="project3.png" alt="" />
+        <div class="content">
+          <span>Pizza Website</span>
+          
+          <div class="share">
+            <a href=""><i></i></a>
+          </div>
         </div>
-
-
-        <div class="box-container">
-            <div class="box">
-                <img src="template-4.jpg" alt="">
-                <div class="content">
-                    <span>Expert Trainers</span>
-                    <h3>JD Verma</h3>
-                    <div class="share">
-                        <a href=""><i></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="box-container">
-            <div class="box">
-                <img src="template-5.jpg" alt="">
-                <div class="content">
-                    <span>Expert Trainers</span>
-                    <h3>JD Verma</h3>
-                    <div class="share">
-                        <a href=""><i></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="box-container">
-            <div class="box">
-                <img src="template-6.jpg" alt="">
-                <div class="content">
-                    <span>Expert Trainers</span>
-                    <h3>JD Verma</h3>
-                    <div class="share">
-                        <a href=""><i></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="box-container">
-            <div class="box">
-                <img src="template-7.png" alt="">
-                <div class="content">
-                    <span>Expert Trainers</span>
-                    <h3>JD Verma</h3>
-                    <div class="share">
-                        <a href=""><i></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="box-container">
-            <div class="box">
-                <img src="template-8.png" alt="">
-                <div class="content">
-                    <span>Expert Trainers</span>
-                    <h3>JD Verma</h3>
-                    <div class="share">
-                        <a href=""><i></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-    </section>
-
-    <div class="btn-items">
-        <a href="portfolio.html" class="btn-details"> More Details</a>
+      </div>
     </div>
+    
+    <div class="box-container" style="padding: 20px">
+      <div class="box">
+        <img src="template-1.png" alt="" />
+        
+        <span>Pizza. Website</span>
+        <div class="share">
+          <a href=""><i></i></a>
+          <div class="content">
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="box-container" style="padding: 20px">
+      <div class="box">
+        <img src="template-2.png" alt="" />
+        <div class="content">
+          <span>University Website</span>
+          
+          <div class="share">
+            <a href=""><i></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="box-container" style="padding: 20px">
+      <div class="box">
+        <img src="template-3.png" alt="" />
+        <div class="content">
+          <span>Gym Website</span>
+          
+          <div class="share">
+            <a href=""><i></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="box-container" style="padding: 20px">
+      <div class="box">
+        <img src="template-4.jpg" alt="" />
+        <div class="content">
+          <span>Template</span>
+          
+          <div class="share">
+            <a href=""><i></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="box-container" style="padding: 20px">
+      <div class="box">
+        <img src="template-5.jpg" alt="" />
+        <div class="content">
+          <span>Template</span>
+          
+          <div class="share">
+            <a href=""><i></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="box-container" style="padding: 20px">
+      <div class="box">
+        <img src="template-6.jpg" alt="" />
+        <div class="content">
+          <span>Template</span>
+          
+          <div class="share">
+            <a href=""><i></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="box-container" style="padding: 20px">
+      <div class="box">
+        <img src="template-7.png" alt="" />
+        <div class="content">
+          <span>Dream Wedding Website</span>
+          
+          <div class="share">
+            <a href=""><i></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="box-container" style="padding: 20px">
+      <div class="box">
+        <img src="template-8.png" alt="" />
+        <div class="content">
+          <span>Makeovers Website</span>
+          
+          <div class="share">
+            <a href=""><i></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <br>
-    <br>
-    <br>
-    <br>
+  
+  <div class="btn-items">
+    <a href="portfolio.html" class="btn-details"> More Details</a>
+  </div>
+-->
+  
+  <br />
+  <br />
+  <br />
+  <br />
 
 
 
+  <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+
+   <!--------javascript for toggle menu-------->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+   <script>
+ 
+     AOS.init({
+       delay: 400,
+       duration: 1000
+     })
+   </script>
 
 
-    <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
 </body>
-
-
-
 
 </html>
